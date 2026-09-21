@@ -1,6 +1,6 @@
 #include "func/str.h"
 #include "func/math/math.h"
-#include "func/crypto/crypt.h"
+#include "func/crypto/crypto.h"
 
 extern "C" {
 void man(int argc, char** argv) {
