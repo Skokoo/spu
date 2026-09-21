@@ -12,7 +12,7 @@ void man(int argc, char** argv) {
     const char* flag = argv[1];
 
     if (mstr(flag, "-h")) {
-        sp("\nUsage: sp \033[34m[flag] [args]\033[0m\n\n");
+        sp("\nUsage: spu \033[34m[flag] [args]\033[0m\n\n");
         sp("Option:\n");
         sp("  -h    : Show help menu\n");
         sp("  -ex   : Show Example\n");
