@@ -1,5 +1,5 @@
-#ifndef VISUAL_H
-#define VISUAL_H
+#ifndef RGB_H
+#define RGB_H
 
 #include "math.h"
 
