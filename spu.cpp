@@ -26,8 +26,8 @@ void man(int argc, char** argv) {
         sp("  -F    : Conditional IF -> spu -F [v1] [op] [v2] (and/or ...) [text]\n");
         sp("  -b64e : Base64 Encode -> spu -b64e [text]\n");
         sp("  -b64d : Base64 Decode -> spu -b64d [encoded]\n");
-        sp("  -rgb  : Print RGB thing, not done -> spu -rgb [Plaintext]\n")
-        sp("  -mtrx : Matrix thing -> sp -mtrx [seconds]\n")
+        sp("  -rgb  : Print RGB thing, not done -> spu -rgb [Plaintext]\n");
+        sp("  -mtrx : Matrix thing -> sp -mtrx [seconds]\n");
         sp("  -qnt  : Randomness generator & wave simulation -> spu -qnt [pos]\n\n");
         sysexit(0);
     }
