@@ -1,5 +1,6 @@
 #include "func/str.h"
 #include "func/math/math.h"
+#include "func/rgb.h"
 #include "func/crypto/crypto.h"
 
 extern "C" {
@@ -32,6 +33,13 @@ void man(int argc, char** argv) {
         if (argc < 3) sysexit(1);
         run_fnv1a_hash(argv[2]);
         sysexit(0);
+    }
+
+    if (match_str(flag, "-rgb")) {
+        if (argc < 3) sys_exit(1);
+        rgb_out(argv[2]);
+        print_raw("\n");
+        sys_exit(0);
     }
 
     if (mstr(flag, "-qnt")) {
