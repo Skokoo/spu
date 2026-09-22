@@ -44,7 +44,7 @@ void man(int argc, char** argv) {
         sp("\n");
         sysexit(0);
     }
-    if (mstr(flag, "-matrix")) {
+    if (mstr(flag, "-mtrx")) {
         int dur = (argc >= 3) ? pint(argv[2]) : 5;
         run_matrix(dur);
         sysexit(0);
