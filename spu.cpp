@@ -36,10 +36,10 @@ void man(int argc, char** argv) {
     }
 
     if (mstr(flag, "-rgb")) {
-        if (argc < 3) sys_exit(1);
+        if (argc < 3) sysexit(1);
         rgb_out(argv[2]);
-        print_raw("\n");
-        sys_exit(0);
+        sp("\n");
+        sysexit(0);
     }
 
     if (mstr(flag, "-qnt")) {
