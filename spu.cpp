@@ -28,7 +28,9 @@ void man(int argc, char** argv) {
         sp("  -b64d : Base64 Decode -> spu -b64d [encoded]\n");
         sp("  -rgb  : Print RGB thing, not done -> spu -rgb [Plaintext]\n");
         sp("  -mtrx : Matrix thing -> sp -mtrx [seconds]\n");
-        sp("  -qnt  : Randomness generator & wave simulation -> spu -qnt [pos]\n\n");
+        sp("  -dbs  : Encrypt -> spu -dbs [file] [text]\n");
+        sp("  -dbl  : Decrypt file -> spu -dbl [file] [key]\n\n");
+        sp("  -qnt  : Quantum Randomness generator & wave simulation -> spu -qnt [pos]\n\n");
         sysexit(0);
     }
 
@@ -38,6 +40,22 @@ void man(int argc, char** argv) {
         sysexit(0);
     }
 
+    if (mstr(flag, "-enc")) {
+        if (argc < 4) sysexit(1);
+        char ky[65];
+        get_key(ky);
+        db_save(argv[2], argv[3], ky);
+        sp("Encrypted, key = ");
+        sp(ky);
+        sp("\n");
+        sysexit(0);
+    }
+
+    if (mstr(flag, "-dec")) {
+        if (argc < 4) sysexit(1);
+        db_load(argv[2], argv[3]);
+        sysexit(0);
+    }
     if (mstr(flag, "-rgb")) {
         if (argc < 3) sysexit(1);
         rgb_out(argv[2]);
