@@ -1,6 +1,7 @@
 #include "func/str.h"
 #include "func/math/math.h"
 #include "func/rgb.h"
+#include "func/matrix.h"
 #include "func/crypto/crypto.h"
 
 extern "C" {
@@ -18,14 +19,16 @@ void man(int argc, char** argv) {
         sp("  -h    : Show help menu\n");
         sp("  -ex   : Show Example\n");
         sp("  -i    : Read stdin stream\n");
-        sp("  -re   : Regex match -> sp -re [pattern] [text]\n");
-        sp("  -hash : FNV-1a 64-bit Checksum -> sp -hash [text]\n");
-        sp("  -m    : Math solver -> sp -m [func] [val]\n");
-        sp("  -L    : Loop execution -> sp -L [init] [cond] [text] [step]\n");
-        sp("  -F    : Conditional IF -> sp -F [v1] [op] [v2] (and/or ...) [text]\n");
-        sp("  -b64e : Base64 Encode -> sp -b64e [text]\n");
-        sp("  -b64d : Base64 Decode -> sp -b64d [hash]\n");
-        sp("  -qnt  : Randomness generator & wave simulation -> sp -qnt [pos]\n\n");
+        sp("  -re   : Regex match -> spu -re [pattern] [text]\n");
+        sp("  -hash : FNV-1a 64-bit Checksum -> spu -hash [text]\n");
+        sp("  -m    : Math solver -> spu -m [func] [val]\n");
+        sp("  -L    : Loop execution -> spu -L [init] [cond] [text] [step]\n");
+        sp("  -F    : Conditional IF -> spu -F [v1] [op] [v2] (and/or ...) [text]\n");
+        sp("  -b64e : Base64 Encode -> spu -b64e [text]\n");
+        sp("  -b64d : Base64 Decode -> spu -b64d [encoded]\n");
+        sp("  -rgb  : Print RGB thing, not done -> spu -rgb [Plaintext]\n"
+        sp("  -mtrx : Matrix thing -> sp -mtrx [seconds]\n")
+        sp("  -qnt  : Randomness generator & wave simulation -> spu -qnt [pos]\n\n");
         sysexit(0);
     }
 
@@ -39,6 +42,11 @@ void man(int argc, char** argv) {
         if (argc < 3) sysexit(1);
         rgb_out(argv[2]);
         sp("\n");
+        sysexit(0);
+    }
+    if (mstr(flag, "-matrix")) {
+        int dur = (argc >= 3) ? pint(argv[2]) : 5;
+        run_matrix(dur);
         sysexit(0);
     }
 
