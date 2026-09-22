@@ -35,7 +35,7 @@ void man(int argc, char** argv) {
         sysexit(0);
     }
 
-    if (match_str(flag, "-rgb")) {
+    if (mstr(flag, "-rgb")) {
         if (argc < 3) sys_exit(1);
         rgb_out(argv[2]);
         print_raw("\n");
