@@ -2,6 +2,7 @@
 #include "func/math/math.h"
 #include "func/rgb.h"
 #include "func/matrix.h"
+#include "func/Database/yaifu.h"
 #include "func/crypto/crypto.h"
 
 extern "C" {
