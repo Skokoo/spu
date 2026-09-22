@@ -1,7 +1,7 @@
 #ifndef YAIFU_H
 #define YAIFU_H
 
-#include "str.h"
+#include "../str.h"
 
 extern "C" {
 char* _s(char* str, unsigned long len) {
