@@ -19,10 +19,18 @@ void rgb_out(const char* s) {
         if (s[i]==' ' || s[i]=='\t' || s[i]=='\n'){
             syswrite(1, &s[i++], 1);
             continue;
-        }
-        int r = (int)(msin(0.3*i)*127+128);
-        int g = (int)(msin(0.3*i+2)*127+128);
-        int b = (int)(msin(0.3*i+4)*127+128);
+        }                
+        double r_rad = 0.3 * i;
+        double g_rad = 0.3 * i + 2.0;
+        double b_rad = 0.3 * i + 4.0;
+        
+        while (r_rad > 6.283185307179586) r_rad -= 6.283185307179586;
+        while (g_rad > 6.283185307179586) g_rad -= 6.283185307179586;
+        while (b_rad > 6.283185307179586) b_rad -= 6.283185307179586;
+
+        int r = (int)(msin(r_rad) * 127.0 + 128.0);
+        int g = (int)(msin(g_rad) * 127.0 + 128.0);
+        int b = (int)(msin(b_rad) * 127.0 + 128.0);
 
         int n = 0;
         out[n++]='\033'; out[n++]='['; out[n++]='3'; out[n++]='8';
